@@ -62,4 +62,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // Iniciar o slider
     showTestimonial(currentTestimonial);
 
+    // CARROSSEL DE TRATAMENTOS
+    const track = document.querySelector('.carousel-track');
+    const cards = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const trackContainer = document.querySelector('.carousel-track-container');
+
+    let cardWidth = cards[0].getBoundingClientRect().width;
+    let currentIndex = 0;
+
+    const updateCarouselPosition = () => {
+        const gap = parseInt(window.getComputedStyle(track).gap);
+        const offset = -currentIndex * (cardWidth + gap);
+        track.style.transform = `translateX(${offset}px)`;
+    };
+
+    const getVisibleCards = () => {
+        const containerWidth = trackContainer.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(track).gap);
+        return Math.floor(containerWidth / (cardWidth + gap));
+    };
+
+    nextButton.addEventListener('click', () => {
+        const visibleCards = getVisibleCards();
+        const maxIndex = cards.length - visibleCards;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarouselPosition();
+        }
+    });
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarouselPosition();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        cardWidth = cards[0].getBoundingClientRect().width;
+        // Reseta a posição para evitar que o carrossel fique em um estado inválido
+        const visibleCards = getVisibleCards();
+        const maxIndex = cards.length - visibleCards;
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+        updateCarouselPosition();
+    });
+
 });
+
