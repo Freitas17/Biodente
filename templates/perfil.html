@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Perfil - Biodente</title>
+
+    <link rel="stylesheet" href="../paciente.css" />
+    <link rel="stylesheet" href="../paciente-telas.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-logo">
+        <img
+          src="../static/Biodente_dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="./paciente.html">Início</a></li>
+        <li><a href="./agendamentos.html">Meus Agendamentos</a></li>
+        <li><a href="./exames.html">Meus Exames</a></li>
+        <li><a href="./perfil.html" class="active">Meu Perfil</a></li>
+      </ul>
+      <div class="nav-user">
+        <a href="../index.html" class="btn-sair"
+          ><i class="fas fa-sign-out-alt"></i> Sair</a
+        >
+      </div>
+    </header>
+
+    <main class="patient-container">
+      <h2 style="font-size: 1.8rem; margin-bottom: 25px">Meu Perfil</h2>
+
+      <div class="profile-grid">
+        <div class="card">
+          <h4>Dados Pessoais</h4>
+          <hr style="border-color: #334a60; margin: 15px 0" />
+          <form>
+            <div class="form-group">
+              <label for="nome">Nome Completo</label>
+              <input
+                type="text"
+                id="nome"
+                value="Jadir Custódio Mendonça"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="cpf">CPF</label>
+              <input type="text" id="cpf" value="123.456.789-00" readonly />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" value="jadircustodio@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input type="tel" id="telefone" value="(11) 98765-4321" />
+            </div>
+            <button type="submit" class="btn-salvar">Salvar Alterações</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h4>Alterar Senha</h4>
+          <hr style="border-color: #334a60; margin: 15px 0" />
+          <form>
+            <div class="form-group">
+              <label for="senha-atual">Senha Atual</label>
+              <input type="password" id="senha-atual" />
+            </div>
+            <div class="form-group">
+              <label for="nova-senha">Nova Senha</label>
+              <input type="password" id="nova-senha" />
+            </div>
+            <div class="form-group">
+              <label for="conf-senha">Confirmar Nova Senha</label>
+              <input type="password" id="conf-senha" />
+            </div>
+            <button type="submit" class="btn-salvar">Alterar Senha</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-logo">
+        <img src="../static/Biodente_dark-icon.png" alt="Ícone Biodente" />
+        <span>Biodente</span>
+      </div>
+      <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="./perfil.html">Meu Perfil</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+      </div>
+    </footer>
+  </body>
+</html>

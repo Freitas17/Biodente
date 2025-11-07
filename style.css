@@ -1,0 +1,172 @@
+/* --- Variáveis de Cor (Nossa Paleta) --- */
+:root {
+  --cor-fundo: #0a2239; /* Azul Marinho (Fundo) */
+  --cor-card: #1d344a; /* Cinza-Dark (Fundo do Card) */
+  --cor-principal: #48e5c2; /* Verde-Água (Destaque e Botões) */
+  --cor-texto-principal: #ffffff;
+  --cor-texto-secundario: #e0e0e0;
+  --cor-texto-botao: #0a2239; /* Texto do botão principal (escuro) */
+  --font-principal: "Poppins", sans-serif;
+}
+
+/* --- Reset Básico --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;      
+    padding: 0;
+}
+
+/* --- Card de Login --- */
+.login-container {
+  width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card {
+  background-color: var(--cor-card);
+    border-radius: 12px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-out;
+    width: 100%; 
+    max-width: 450px; 
+}
+
+/* --- Animação Simples --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Conteúdo do Card --- */
+.logo {
+  width: 120px; /* Ajuste conforme o tamanho da sua logo */
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.slogan {
+  font-size: 0.95rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* --- Botões --- */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os botões */
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-principal);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Botão Principal (Usuário/Dentista) - Sólido */
+.btn-primary {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-botao);
+}
+.btn-primary:hover {
+  background-color: #3ccea9; /* Um tom levemente mais escuro */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(72, 229, 194, 0.2);
+}
+
+/* Botão Secundário (Admin) - Contorno */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--cor-principal);
+  border: 2px solid var(--cor-principal);
+}
+.btn-secondary:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  transform: translateY(-2px);
+}
+
+/* --- Estilo do Rodapé (Footer) --- */
+.site-footer {
+    width: 100%;
+    background-color: var(--cor-card); /* Reusa a cor dos cards/sidebar */
+    color: var(--cor-texto-secundario);
+    padding: 30px 5%;
+    margin-top: 40px; /* Dá um espaço entre o conteúdo e o rodapé */
+    text-align: center;
+    border-top: 1px solid #334a60; /* Linha sutil de separação */
+}
+
+.site-footer .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.site-footer .footer-logo img {
+    width: 30px;
+    height: 30px;
+}
+.site-footer .footer-logo span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cor-principal);
+}
+
+.site-footer p {
+    width: 100%;
+    background-color: var(--cor-card);
+    color: var(--cor-texto-secundario);
+    padding: 30px 5%;
+    text-align: center;
+    border-top: 1px solid #334a60;
+    margin-top: 0;
+}
+
+.footer-links a {
+    color: var(--cor-texto-secundario);
+    font-size: 0.9rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--cor-principal);
+}
+

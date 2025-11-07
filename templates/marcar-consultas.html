@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcar Consulta - Biodente</title>
+
+    <link rel="stylesheet" href="../paciente.css" />
+    <link rel="stylesheet" href="../paciente-telas.css" />
+    <link rel="stylesheet" href="../marcar-consulta.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-logo">
+        <img
+          src="../static/Biodente_dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="./paciente.html">Início</a></li>
+        <li>
+          <a href="./agendamentos.html" class="active">Meus Agendamentos</a>
+        </li>
+        <li><a href="./exames.html">Meus Exames</a></li>
+        <li><a href="./perfil.html">Meu Perfil</a></li>
+      </ul>
+      <div class="nav-user">
+        <a href="../index.html" class="btn-sair"
+          ><i class="fas fa-sign-out-alt"></i> Sair</a
+        >
+      </div>
+    </header>
+
+    <main class="patient-container">
+      <h2 style="font-size: 1.8rem; margin-bottom: 25px">
+        Marcar Nova Consulta
+      </h2>
+
+      <div class="booking-layout">
+        <div class="booking-steps">
+          <div class="step active" id="step1">
+            <h3>Passo 1: Escolha o serviço</h3>
+            <div class="form-group">
+              <label for="servico">Tipo de Consulta</label>
+              <select id="servico">
+                <option value="">-- Selecione --</option>
+                <option value="Avaliação de Rotina">Avaliação de Rotina</option>
+                <option value="Limpeza">Limpeza</option>
+                <option value="Restauração">Restauração</option>
+                <option value="Emergência (Dor)">Emergência (Dor)</option>
+                <option value="Ortodontia (Aparelho)">
+                  Ortodontia (Aparelho)
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="profissional">Profissional</label>
+              <select id="profissional">
+                </option>
+                <option value="Dr. Carlos">Dr. Carlos</option>
+                <option value="Dra. Ana">Dra. Ana</option>
+                <option value="Dra. Beatriz (Ortodontia)">
+                  Dra. Beatriz (Ortodontia)
+                </option>
+              </select>
+            </div>
+            <div class="step-navigation">
+              <span></span>
+              <button class="btn-step" id="btn-step1">Avançar</button>
+            </div>
+          </div>
+
+          <div class="step" id="step2">
+            <h3>Passo 2: Escolha a Data e Hora</h3>
+
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button class="calendar-nav" id="prev-month">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <h4 id="month-year">Novembro 2025</h4>
+                <button class="calendar-nav" id="next-month">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="calendar-days">
+                <div class="day-name">Dom</div>
+                <div class="day-name">Seg</div>
+                <div class="day-name">Ter</div>
+                <div class="day-name">Qua</div>
+                <div class="day-name">Qui</div>
+                <div class="day-name">Sex</div>
+                <div class="day-name">Sáb</div>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+
+            <div class="time-slots" id="time-slots" style="display: none">
+              <h4>
+                Horários disponíveis para <span id="selected-date-info"></span>
+              </h4>
+              <div class="slots-grid" id="slots-grid"></div>
+            </div>
+
+            <div class="step-navigation">
+              <button class="btn-step secondary" id="btn-back1">Voltar</button>
+              <button class="btn-step" id="btn-step2" disabled>Avançar</button>
+            </div>
+          </div>
+
+          <div class="step" id="step3">
+            <h3>Passo 3: Confirme seu Agendamento</h3>
+            <div class="confirmation-details">
+              <p>Por favor, revise os dados do seu agendamento:</p>
+              <br />
+              <p><strong>Serviço:</strong> <span id="conf-servico"></span></p>
+              <p>
+                <strong>Profissional:</strong>
+                <span id="conf-profissional"></span>
+              </p>
+              <p><strong>Data:</strong> <span id="conf-data"></span></p>
+              <p><strong>Hora:</strong> <span id="conf-hora"></span></p>
+            </div>
+
+            <div class="step-navigation">
+              <button class="btn-step secondary" id="btn-back2">Voltar</button>
+              <button class="btn-step" id="btn-confirm">
+                Confirmar Agendamento
+              </button>
+            </div>
+          </div>
+
+          <div class="step" id="step-success">
+            <div class="booking-success">
+              <i class="fas fa-check-circle"></i>
+              <h3>Agendamento Confirmado!</h3>
+              <p>Enviamos os detalhes para o seu e-mail.</p>
+              <a href="./agendamentos.html" class="btn-back-home"
+                >Ver Meus Agendamentos</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-summary">
+          <h4>Resumo do Agendamento</h4>
+          <div class="summary-item">
+            <label>Serviço</label>
+            <span id="summary-servico">--</span>
+          </div>
+          <div class="summary-item">
+            <label>Profissional</label>
+            <span id="summary-profissional">--</span>
+          </div>
+          <div class="summary-item">
+            <label>Data</label>
+            <span id="summary-data">--</span>
+          </div>
+          <div class="summary-item">
+            <label>Hora</label>
+            <span id="summary-hora">--</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+    <div class="footer-logo">
+        <img src="../static/Biodente_dark-icon.png" alt="Ícone Biodente">
+        <span>Biodente</span>
+    </div>
+    <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+    <div class="footer-links">
+        <a href="./perfil.html">Meu Perfil</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+    </div>
+</footer>
+
+    <script src="../marcar-consulta.js"></script>
+  </body>
+</html>

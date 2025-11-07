@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal do Paciente - Biodente</title>
+
+    <link rel="stylesheet" href="../paciente.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-logo">
+        <img
+          src="../static/Biodente_dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#" class="active">Início</a></li>
+        <li><a href="./agendamentos.html">Meus Agendamentos</a></li>
+        <li><a href="./exames.html">Meus Exames</a></li>
+        <li><a href="./perfil.html">Meu Perfil</a></li>
+      </ul>
+      <div class="nav-user">
+        <a href="../index.html" class="btn-sair">
+          <i class="fas fa-sign-out-alt"></i> Sair
+        </a>
+      </div>
+    </header>
+
+    <main class="patient-container">
+      <section class="welcome-header">
+        <div class="welcome-text">
+          <h2>Olá, Jadir!</h2>
+          <p>Veja seus próximos agendamentos e marque novas consultas.</p>
+        </div>
+        <a href="./marcar-consultas.html">
+          <button class="btn-agendar">
+            <i class="fas fa-calendar-plus"></i>
+            Marcar Nova Consulta
+          </button>
+        </a>
+      </section>
+
+      <section class="patient-grid">
+        <div class="card card-proximo">
+          <div class="card-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="card-content">
+            <h4>Próximo Agendamento</h4>
+            <p class="data-agendamento">
+              Quinta-feira, 13 de Nov (Amanhã) às 10:30
+            </p>
+            <small>Procedimento: Avaliação de Rotina</small>
+            <small>Profissional: Dr. Carlos</small>
+          </div>
+        </div>
+        <div class="card card-exames">
+          <div class="card-header">
+            <h4><i class="fas fa-file-medical"></i> Meus Exames Recentes</h4>
+            <a href="./exames.html" class="ver-todos">Ver Todos</a>
+          </div>
+          <ul class="lista-exames">
+            <li>
+              <span>Radiografia Panorâmica</span>
+              <a href="../static/raio-x_panoramico.jpeg" class="btn-ver-exame"
+                >Ver Exame</a
+              >
+            </li>
+            <li>
+              <span>Orçamento (Implantes)</span>
+              <a href="../static/orcamento_implantes_jadir.pdf" class="btn-ver-exame"
+                >Ver Exame</a
+              >
+            </li>
+            <li>
+              <span>Exame de Sangue (Pré-Cirurgia)</span>
+              <a
+                href="../static/hemograma_pre_cirurgico_jadir.pdf"
+                class="btn-ver-exame"
+                >Ver Exame</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="card card-historico">
+          <div class="card-header">
+            <h4><i class="fas fa-history"></i> Histórico de Consultas</h4>
+            <a href="./agendamentos.html" class="ver-todos">Ver Completo</a>
+          </div>
+          <ul class="lista-historico">
+            <li>
+              <span>02/06/2025</span>
+              <span>Restauração (Dente 26)</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-logo">
+        <img src="../static/Biodente_dark-icon.png" alt="Ícone Biodente" />
+        <span>Biodente</span>
+      </div>
+      <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="./perfil.html">Meu Perfil</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+      </div>
+    </footer>
+  </body>
+</html>
