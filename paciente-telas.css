@@ -256,3 +256,38 @@
 .footer-links a:hover {
     color: var(--cor-principal);
 }
+
+.header-com-botao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-com-botao h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+.btn-novo-agendamento {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-botao);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-principal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-novo-agendamento:hover {
+    background-color: var(--cor-principal-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(72, 229, 194, 0.2);
+}

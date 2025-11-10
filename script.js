@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (adminLoginButton) {
     adminLoginButton.addEventListener("click", () => {
-      console.log("Botão Secretária clicado");
+      console.log("Botão Admin clicado");
       // Ação real: (ex: window.location.href = '/login-admin.html')
-      alert("Redirecionando para o login de Secretária...");
+      alert("Redirecionando para o login de Admin...");
     });
   }
 });
