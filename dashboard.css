@@ -705,3 +705,66 @@ ul {
     color: #000 !important;
   }
 }
+
+/* --- Estilos para Página de Configurações --- */
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  gap: 25px;
+}
+
+/* Estilos de Formulário (Genérico para o Admin) */
+.form-group-admin {
+  margin-bottom: 20px;
+}
+.form-group-admin label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 8px;
+}
+.form-group-admin input[type="text"],
+.form-group-admin input[type="email"],
+.form-group-admin input[type="tel"],
+.form-group-admin input[type="password"] {
+  width: 100%;
+  background-color: var(--cor-fundo);
+  border: 1px solid #334a60;
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: var(--cor-texto-principal);
+  font-family: var(--font-principal);
+  font-size: 1rem;
+}
+.form-group-admin input:focus {
+  outline: none;
+  border-color: var(--cor-principal);
+}
+.form-group-admin input[readonly] {
+  background-color: #2a3f54;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-salvar-admin {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-salvar-admin:hover {
+  background-color: var(--cor-principal-hover);
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 1200px) {
+  .config-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+}
