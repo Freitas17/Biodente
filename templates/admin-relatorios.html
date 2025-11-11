@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Biodente</title>
+    
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="msapplication-TileColor" content="#0a2239">
+    <meta name="theme-color" content="#0a2239">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo-biodente-dark-icon.png" alt="Logo Biodente" class="logo-icon">
+            <h1>Biodente</h1>
+        </div>
+        <ul class="menu-principal">
+            <li class="menu-item"><a href="usuario.html"><i class="fas fa-home"></i><span>Início</span></a></li>
+            <li class="menu-item"><a href="admin-agenda.html"><i class="fas fa-calendar-alt"></i><span>Agenda (Marcar)</span></a></li>
+            <li class="menu-item"><a href="admin-pacientes.html"><i class="fas fa-user-group"></i><span>Pacientes</span></a></li>
+            <li class="menu-item"><a href="admin-financeiro.html"><i class="fas fa-wallet"></i><span>Financeiro</span></a></li>
+            <li class="menu-item"><a href="admin-estoque.html"><i class="fas fa-box-archive"></i><span>Estoque</span></a></li>
+            <li class="menu-item active"><a href="admin-relatorios.html"><i class="fas fa-chart-pie"></i><span>Relatórios</span></a></li>
+        </ul>
+        <ul class="menu-inferior">
+            <li class="menu-item"><a href="#"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+            <li class="menu-item"><a href="index.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <header class="main-header">
+            <div class="header-titulo">
+                <h2>Relatórios</h2>
+                <p>Gere e exporte relatórios da clínica.</p>
+            </div>
+            <div class="header-user">
+                <i class="fas fa-bell"></i>
+                <div class="user-info">
+                    <span>Admin / Secretária</span>
+                    <small>Clínica Principal</small>
+                </div>
+                <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="user-avatar">
+            </div>
+        </header>
+        
+        <section class="dashboard-inicio">
+            
+            <button class="btn-acao-admin" id="btn-print-report" style="min-height: 0; padding: 12px 20px; width: 200px; margin-bottom: 20px;">
+                <i class="fas fa-print"></i>
+                <span>Imprimir Relatório</span>
+            </button>
+            
+            <div class="card" id="report-content">
+                <div class="card-header" style="border-bottom: 1px solid var(--cor-fundo); padding-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="logo-biodente-dark-icon.png" alt="Logo" style="width: 40px; height: 40px;">
+                        <h4 style="font-size: 1.5rem;">Relatório Geral - Biodente</h4>
+                    </div>
+                    <span id="report-date"></span>
+                </div>
+                
+                <div class="report-section">
+                    <h3>Resumo Geral</h3>
+                    <div class="report-metrics-grid">
+                        <div class="report-metric">
+                            <small>Saldo Líquido</small>
+                            <span id="report-saldo-liquido" class="valor-ok">R$ 0,00</span>
+                        </div>
+                        <div class="report-metric">
+                            <small>Total de Pacientes</small>
+                            <span id="report-total-pacientes">0</span>
+                        </div>
+                        <div class="report-metric">
+                            <small>Itens de Estoque Baixo</small>
+                            <span id="report-total-estoque" class="valor-critico">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="report-section">
+                    <h3>Relatório Financeiro</h3>
+                    <table class="tabela-dados">
+                        <tbody>
+                            <tr>
+                                <td>Total de Receitas</td>
+                                <td id="report-total-receitas" class="valor-receita" style="text-align: right;">R$ 0,00</td>
+                            </tr>
+                            <tr>
+                                <td>Total de Despesas</td>
+                                <td id="report-total-despesas" class="valor-despesa" style="text-align: right;">R$ 0,00</td>
+                            </tr>
+                            <tr style="border-top: 2px solid var(--cor-principal);">
+                                <td><strong>Saldo Líquido</strong></td>
+                                <td id="report-saldo-liquido-2" class="valor-ok" style="text-align: right; font-size: 1.2rem;"><strong>R$ 0,00</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="report-section">
+                    <h3>Relatório de Estoque (Itens em Nível Baixo/Crítico)</h3>
+                    <ul class="report-list" id="report-lista-estoque">
+                        <li id="no-stock-alert">Nenhum item em nível de alerta.</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+        
+        <footer class="site-footer">
+            <div class="footer-logo">
+                <img src="logo-biodente-dark-icon.png" alt="Ícone Biodente">
+                <span>Biodente</span>
+            </div>
+            <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+        </footer>
+
+    </main>
+    
+    <script src="../admin-relatorio.js"></script>
+
+</body>
+</html>

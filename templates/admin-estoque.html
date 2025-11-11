@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estoque - Biodente</title>
+
+    <link rel="stylesheet" href="../dashboard.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="msapplication-TileColor" content="#0a2239" />
+    <meta name="theme-color" content="#0a2239" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="logo-biodente-dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+      <ul class="menu-principal">
+        <li class="menu-item">
+          <a href="usuario.html"
+            ><i class="fas fa-home"></i><span>Início</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-agenda.html"
+            ><i class="fas fa-calendar-alt"></i><span>Agenda (Marcar)</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-pacientes.html"
+            ><i class="fas fa-user-group"></i><span>Pacientes</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-financeiro.html"
+            ><i class="fas fa-wallet"></i><span>Financeiro</span></a
+          >
+        </li>
+        <li class="menu-item active">
+          <a href="admin-estoque.html"
+            ><i class="fas fa-box-archive"></i><span>Estoque</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-relatorios.html"
+            ><i class="fas fa-chart-pie"></i><span>Relatórios</span></a
+          >
+        </li>
+      </ul>
+      <ul class="menu-inferior">
+        <li class="menu-item">
+          <a href="#"><i class="fas fa-cog"></i><span>Configurações</span></a>
+        </li>
+        <li class="menu-item">
+          <a href="index.html"
+            ><i class="fas fa-sign-out-alt"></i><span>Sair</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-titulo">
+          <h2>Controle de Estoque</h2>
+          <p>Gerencie equipamentos e materiais (remédios, luvas, etc).</p>
+        </div>
+        <div class="header-user">
+          <i class="fas fa-bell"></i>
+          <div class="user-info">
+            <span>Admin / Secretária</span>
+            <small>Clínica Principal</small>
+          </div>
+          <img
+            src="https://i.pravatar.cc/150?img=12"
+            alt="Avatar"
+            class="user-avatar"
+          />
+        </div>
+      </header>
+
+      <section class="dashboard-inicio">
+        <div class="card">
+          <div class="card-header">
+            <h4>Itens em Estoque</h4>
+            <button
+              class="btn-acao-admin"
+              id="btn-novo-item"
+              style="min-height: 0; padding: 10px 15px"
+            >
+              <i class="fas fa-plus"></i><span>Novo Item</span>
+            </button>
+          </div>
+
+          <table class="tabela-dados">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Qtd. Atual</th>
+                <th>Qtd. Mínima</th>
+                <th>Status</th>
+                <th style="width: 150px">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="estoque-table-body">
+              <tr id="no-items-row">
+                <td
+                  colspan="5"
+                  style="
+                    text-align: center;
+                    color: var(--cor-texto-secundario);
+                    padding: 20px;
+                  "
+                >
+                  Nenhum item cadastrado no estoque.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-logo">
+          <img src="logo-biodente-dark-icon.png" alt="Ícone Biodente" />
+          <span>Biodente</span>
+        </div>
+        <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+      </footer>
+    </main>
+
+    <div class="modal-overlay" id="new-item-modal">
+      <div class="modal-content card">
+        <div class="card-header">
+          <h4>Cadastrar Novo Item</h4>
+          <button class="close-modal" id="close-new-item-modal">&times;</button>
+        </div>
+
+        <form id="new-item-form">
+          <div class="form-group-modal">
+            <label for="item-nome">Nome do Item</label>
+            <input type="text" id="item-nome" required />
+          </div>
+          <div class="form-group-modal">
+            <label for="item-qtd-atual">Quantidade Atual</label>
+            <input type="number" id="item-qtd-atual" value="0" required />
+          </div>
+          <div class="form-group-modal">
+            <label for="item-qtd-minima">Quantidade Mínima (Aviso)</label>
+            <input type="number" id="item-qtd-minima" value="5" required />
+          </div>
+          <button
+            type="submit"
+            class="btn-acao-admin"
+            style="width: 100%; margin-top: 15px"
+          >
+            Salvar Item
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay" id="adjust-stock-modal">
+      <div class="modal-content card">
+        <div class="card-header">
+          <h4 id="adjust-modal-title">Ajustar Quantidade</h4>
+          <button class="close-modal" id="close-adjust-modal">&times;</button>
+        </div>
+
+        <form id="adjust-stock-form">
+          <input type="hidden" id="adjust-item-id" />
+          <p style="margin-bottom: 20px">
+            Use números positivos para adicionar (ex: 5) e negativos para dar
+            baixa (ex: -2).
+          </p>
+
+          <div class="form-group-modal">
+            <label for="item-qtd-ajuste">Quantidade a Adicionar/Remover</label>
+            <input
+              type="number"
+              id="item-qtd-ajuste"
+              placeholder="Ex: -1 (dar baixa) ou 10 (adicionar)"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn-acao-admin"
+            style="width: 100%; margin-top: 15px"
+          >
+            Confirmar Ajuste
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../admin-estoque.js"></script>
+  </body>
+</html>

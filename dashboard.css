@@ -1,0 +1,707 @@
+/* --- Variáveis de Cor (ajustadas) --- */
+:root {
+  --cor-fundo: #0a2239; /* Azul Marinho (Fundo Principal) */
+  --cor-sidebar: #1d344a; /* Cinza-Dark (Sidebar e Cards) */
+  --cor-header: #1d344a; /* Cinza-Dark (Header) */
+
+  --cor-principal: #48e5c2; /* Verde-Água (Destaque e Botões) */
+  --cor-principal-hover: #3ccea9;
+  --cor-texto-botao: #0a2239;
+
+  --cor-texto-principal: #ffffff;
+  --cor-texto-secundario: #b0c4de; /* Azul-claro/Cinza */
+
+  --cor-status-limpeza: #3498db;
+  --cor-status-retorno: #9b59b6;
+  --cor-status-avaliacao: #f1c40f;
+
+  --font-principal: "Poppins", sans-serif;
+}
+
+/* --- Reset Básico --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  display: flex; /* Layout principal: Sidebar + Conteúdo */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* --- 1. BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--cor-sidebar);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Fixa a sidebar */
+  top: 0;
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+.sidebar-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+/* --- Menus da Sidebar --- */
+.menu-principal {
+  flex-grow: 1; /* Empurra o menu inferior para baixo */
+}
+
+.menu-item a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.menu-item a i {
+  font-size: 1.1rem;
+  width: 20px; /* Alinha os ícones */
+  text-align: center;
+}
+.menu-item a:hover {
+  background-color: var(--cor-fundo);
+  color: var(--cor-principal);
+}
+
+/* Item Ativo (página atual) */
+.menu-item.active a {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  font-weight: 600;
+}
+.menu-item.active a:hover {
+  background-color: var(--cor-principal-hover);
+}
+
+/* --- 2. CONTEÚDO PRINCIPAL (MAIN) --- */
+.main-content {
+  margin-left: 260px; /* Espaço para a sidebar fixa */
+  width: calc(100% - 260px);
+  padding: 25px;
+
+  /* --- CORREÇÃO FOOTER FIXO (FLEXBOX) --- */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Cabeçalho do Conteúdo --- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--cor-header);
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.header-titulo h2 {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+.header-titulo p {
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-user .fa-bell {
+  font-size: 1.3rem;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.header-user .fa-bell:hover {
+  color: var(--cor-principal);
+}
+
+.user-info {
+  text-align: right;
+  line-height: 1.2;
+}
+.user-info span {
+  font-weight: 600;
+}
+.user-info small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.8rem;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-principal);
+}
+
+/* --- Seção de Início --- */
+.dashboard-inicio {
+  /* --- CORREÇÃO FOOTER FIXO --- */
+  flex-grow: 1; /* Faz esta seção crescer e empurrar o footer */
+}
+
+/* --- Grid do Dashboard (Antigo) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.card {
+  background-color: var(--cor-sidebar);
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.ver-todos {
+  font-size: 0.9rem;
+  color: var(--cor-principal);
+  font-weight: 500;
+}
+.ver-todos:hover {
+  color: var(--cor-principal-hover);
+}
+
+/* Lista de Consultas (Genérica) */
+.lista-consultas li {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--cor-fundo);
+}
+.lista-consultas li:last-child {
+  border-bottom: none;
+}
+.lista-consultas .hora {
+  font-weight: 600;
+  color: var(--cor-principal);
+  margin-right: 15px;
+  width: 50px;
+}
+.lista-consultas .nome {
+  font-weight: 500;
+  flex-grow: 1; /* Empurra o status para a direita */
+}
+.lista-consultas small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+}
+
+.status-consulta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+  color: #fff;
+}
+.status-consulta.limpeza {
+  background-color: var(--cor-status-limpeza);
+}
+.status-consulta.retorno {
+  background-color: var(--cor-status-retorno);
+}
+.status-consulta.avaliacao {
+  background-color: var(--cor-status-avaliacao);
+}
+
+/* Card de Métricas (Antigo) */
+.card.metricas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+}
+.metrica-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.metrica-item i {
+  font-size: 1.8rem;
+  color: var(--cor-principal);
+  width: 40px;
+  text-align: center;
+}
+.metrica-item .numero {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.metrica-item small {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  align-self: center;
+  margin-left: 5px;
+}
+
+/* --- Estilos Adicionais para Dashboard ADMIN --- */
+
+/* Ações Rápidas (4 colunas) */
+.acoes-rapidas-admin {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn-acao-admin {
+  padding: 20px;
+  background-color: var(--cor-sidebar);
+  color: var(--cor-texto-principal);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-principal);
+  display: flex;
+  flex-direction: column; /* Ícone em cima, texto embaixo */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 100px; /* Altura mínima */
+}
+.btn-acao-admin:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(72, 229, 194, 0.2);
+}
+.btn-acao-admin i {
+  font-size: 1.5rem; /* Ícones maiores */
+}
+
+/* Grid do Dashboard Admin */
+.dashboard-grid-admin {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Coluna 2/3 e 1/3 */
+  gap: 25px;
+}
+
+/* O card da agenda (2/3) precisa ficar na área maior */
+.card-agenda-dia {
+  grid-column: 1 / 2;
+}
+
+/* Cards de Finanças e Estoque (1/3) */
+.card-financas,
+.card-estoque {
+  grid-column: 2 / 3;
+}
+.card-estoque {
+  margin-top: 25px; /* Espaço entre finanças e estoque */
+}
+
+/* Card de Finanças */
+.financas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.financas-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.financas-item i {
+  font-size: 1.8rem;
+  width: 30px;
+  text-align: center;
+}
+.financas-item small {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+}
+.financas-item span {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Card de Estoque */
+.lista-estoque li {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cor-fundo);
+}
+.lista-estoque li:last-child {
+  border-bottom: none;
+}
+.lista-estoque i {
+  font-size: 0.7rem;
+  margin-right: 10px;
+}
+.lista-estoque span {
+  font-weight: 500;
+}
+.lista-estoque .estoque-qtd {
+  margin-left: auto; /* Joga a quantidade para a direita */
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+}
+
+/* Ajuste na lista de consultas (para o admin) */
+.lista-consultas .sem-consultas {
+  padding: 20px 0;
+  text-align: center;
+  color: var(--cor-texto-secundario);
+}
+
+/* --- Estilo do Rodapé (Footer) --- */
+.site-footer {
+  width: 100%;
+  background-color: var(--cor-card);
+  color: var(--cor-texto-secundario);
+  padding: 30px 5%;
+  text-align: center;
+  border-top: 1px solid #334a60;
+
+  /* --- CORREÇÃO FOOTER FIXO --- */
+  margin-top: 0;
+}
+
+.site-footer .footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.site-footer .footer-logo img {
+  width: 30px;
+  height: 30px;
+}
+.site-footer .footer-logo span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--cor-principal);
+}
+
+/* --- Estilos para Tabela de Dados (Admin) --- */
+.tabela-dados {
+  width: 100%;
+  border-collapse: collapse; /* Tira espaço entre bordas */
+}
+
+.tabela-dados thead tr {
+  border-bottom: 2px solid var(--cor-principal);
+}
+
+.tabela-dados th {
+  color: var(--cor-texto-secundario);
+  padding: 15px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.tabela-dados tbody tr {
+  border-bottom: 1px solid var(--cor-fundo);
+}
+.tabela-dados tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tabela-dados td {
+  padding: 15px 10px;
+  vertical-align: middle;
+}
+
+/* Botões de Ação na Tabela */
+.btn-acao-tabela {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+.btn-acao-tabela.edit {
+  color: var(--cor-principal);
+}
+.btn-acao-tabela.edit:hover {
+  color: var(--cor-principal-hover);
+}
+.btn-acao-tabela.delete {
+  color: #ff6b6b;
+}
+.btn-acao-tabela.delete:hover {
+  color: #ff3b3b;
+}
+
+/* --- Estilos para Modal (Pop-up) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none; /* Começa escondido */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-overlay.active {
+  display: flex; /* Mostra o modal */
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 500px;
+  /* Reusa o estilo .card */
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: var(--cor-texto-secundario);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-group-modal {
+  margin-bottom: 15px;
+}
+.form-group-modal label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  margin-bottom: 5px;
+}
+
+.form-group-modal input {
+  width: 100%;
+  background-color: var(--cor-fundo);
+  border: 1px solid #334a60;
+  border-radius: 8px;
+  padding: 12px 15px;
+  color: var(--cor-texto-principal);
+  font-family: var(--font-principal);
+  font-size: 1rem;
+}
+
+/* --- Estilos para Finanças (Valores) --- */
+
+.valor-receita {
+  color: var(--cor-principal) !important;
+  font-weight: 600;
+}
+
+.valor-despesa {
+  color: #ff6b6b !important;
+  font-weight: 600;
+}
+
+/* --- Estilos para Status do Estoque --- */
+
+.status-estoque {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.status-ok {
+  color: var(--cor-principal);
+  background-color: rgba(72, 229, 194, 0.1);
+}
+
+.status-baixo {
+  color: #f1c40f; /* Amarelo */
+  background-color: rgba(241, 196, 15, 0.1);
+}
+
+.status-critico {
+  color: #ff6b6b; /* Vermelho */
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* --- Estilos para Página de Relatórios --- */
+.report-section {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--cor-fundo);
+}
+.report-section:last-child {
+  border-bottom: none;
+}
+.report-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--cor-principal);
+  margin-bottom: 20px;
+}
+
+.report-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.report-metric {
+  background-color: var(--cor-fundo);
+  padding: 20px;
+  border-radius: 10px;
+}
+.report-metric small {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  display: block;
+}
+.report-metric span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: block;
+  margin-top: 5px;
+}
+
+.report-list {
+  list-style: none;
+  padding-left: 10px;
+}
+.report-list li {
+  padding: 8px 0;
+  color: var(--cor-texto-secundario);
+}
+.report-list li .valor-critico {
+  font-weight: 600;
+  margin-left: 10px;
+}
+/* Classes de valor para o resumo */
+.valor-ok {
+  color: var(--cor-principal);
+}
+.valor-critico {
+  color: #ff6b6b;
+}
+
+/* --- ESTILOS DE IMPRESSÃO --- */
+@media print {
+  /* Esconde tudo que NÃO é o relatório */
+  body {
+    background-color: #fff !important; /* Fundo branco para impressão */
+  }
+
+  .sidebar,
+  .main-header,
+  .site-footer,
+  #btn-print-report {
+    display: none !important;
+  }
+
+  /* Reseta o layout da página */
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .card,
+  #report-content {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background-color: #fff !important;
+    color: #000 !important; /* Cor do texto preta */
+  }
+
+  .report-section {
+    border-color: #ccc !important;
+  }
+
+  /* Garante que as cores de status apareçam */
+  .valor-ok {
+    color: #008000 !important;
+  } /* Verde */
+  .valor-critico {
+    color: #d00000 !important;
+  } /* Vermelho */
+  .valor-receita {
+    color: #008000 !important;
+  }
+  .valor-despesa {
+    color: #d00000 !important;
+  }
+
+  .report-metric {
+    background-color: #f4f4f4 !important;
+  }
+
+  /* Tira a cor de texto padrão */
+  .report-metric span,
+  .report-metric small,
+  .report-list li,
+  .tabela-dados td,
+  .tabela-dados th,
+  .tabela-dados strong {
+    color: #000 !important;
+  }
+  .report-section h3 {
+    color: #000 !important;
+  }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacientes - Biodente</title>
+
+    <link rel="stylesheet" href="../dashboard.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="msapplication-TileColor" content="#0a2239" />
+    <meta name="theme-color" content="#0a2239" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="../static/Biodente_dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+
+      <ul class="menu-principal">
+        <li class="menu-item">
+          <a href="./admin.html"
+            ><i class="fas fa-home"></i><span>Início</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="./admin-agendamentos.html"
+            ><i class="fas fa-calendar-alt"></i><span>Agenda (Marcar)</span></a
+          >
+        </li>
+        <li class="menu-item active">
+          <a href="./admin-pacientes.html">
+            <i class="fas fa-user-group"></i>
+            <span>Pacientes</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="./admin-financeiro.html"
+            ><i class="fas fa-wallet"></i><span>Financeiro</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="./admin-estoque.html"
+            ><i class="fas fa-box-archive"></i><span>Estoque</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="./admin-relatorios.html"
+            ><i class="fas fa-chart-pie"></i><span>Relatórios</span></a
+          >
+        </li>
+      </ul>
+
+      <ul class="menu-inferior">
+        <li class="menu-item">
+          <a href="#"><i class="fas fa-cog"></i><span>Configurações</span></a>
+        </li>
+        <li class="menu-item">
+          <a href="../index.html"
+            ><i class="fas fa-sign-out-alt"></i><span>Sair</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-titulo">
+          <h2>Gerenciamento de Pacientes</h2>
+          <p>Visualize, edite e cadastre novos pacientes.</p>
+        </div>
+        <div class="header-user">
+          <i class="fas fa-bell"></i>
+          <div class="user-info">
+            <span>Admin / Secretária</span>
+            <small>Clínica Principal</small>
+          </div>
+          <img
+            src="https://i.pravatar.cc/150?img=12"
+            alt="Avatar"
+            class="user-avatar"
+          />
+        </div>
+      </header>
+
+      <section class="dashboard-inicio">
+        <div class="card">
+          <div class="card-header">
+            <h4>Lista de Pacientes</h4>
+            <button
+              class="btn-acao-admin"
+              style="min-height: 0; padding: 10px 15px"
+            >
+              <i class="fas fa-user-plus"></i><span>Novo Paciente</span>
+            </button>
+          </div>
+
+          <p style="color: var(--cor-texto-secundario); padding: 20px">
+            [Aqui entraria uma tabela com Nome, CPF, Telefone, Última Consulta,
+            e botões de Ação (Editar, Ver Prontuário, Marcar Exame).]
+          </p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-logo">
+          <img src="../static/Biodente_dark-icon.png" alt="Ícone Biodente" />
+          <span>Biodente</span>
+        </div>
+        <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+      </footer>
+    </main>
+  </body>
+</html>

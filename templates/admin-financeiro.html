@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro - Biodente</title>
+    
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="msapplication-TileColor" content="#0a2239">
+    <meta name="theme-color" content="#0a2239">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo-biodente-dark-icon.png" alt="Logo Biodente" class="logo-icon">
+            <h1>Biodente</h1>
+        </div>
+        <ul class="menu-principal">
+            <li class="menu-item"><a href="usuario.html"><i class="fas fa-home"></i><span>Início</span></a></li>
+            <li class="menu-item"><a href="admin-agenda.html"><i class="fas fa-calendar-alt"></i><span>Agenda (Marcar)</span></a></li>
+            <li class="menu-item"><a href="admin-pacientes.html"><i class="fas fa-user-group"></i><span>Pacientes</span></a></li>
+            <li class="menu-item active"><a href="admin-financeiro.html"><i class="fas fa-wallet"></i><span>Financeiro</span></a></li>
+            <li class="menu-item"><a href="./admin-pestoque.html"><i class="fas fa-box-archive"></i><span>Estoque</span></a></li>
+            <li class="menu-item"><a href="admin-relatorios.html"><i class="fas fa-chart-pie"></i><span>Relatórios</span></a></li>
+        </ul>
+        <ul class="menu-inferior">
+            <li class="menu-item"><a href="#"><i class="fas fa-cog"></i><span>Configurações</span></a></li>
+            <li class="menu-item"><a href="../index.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <header class="main-header">
+            <div class="header-titulo">
+                <h2>Gestão Financeira</h2>
+                <p>Controle de receitas, despesas e fluxo de caixa.</p>
+            </div>
+            <div class="header-user">
+                <i class="fas fa-bell"></i>
+                <div class="user-info">
+                    <span>Admin / Secretária</span>
+                    <small>Clínica Principal</small>
+                </div>
+                <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="user-avatar">
+            </div>
+        </header>
+        
+        <section class="dashboard-inicio">
+            
+            <div class="acoes-rapidas-admin" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="financas-item" style="background-color: var(--cor-sidebar); padding: 20px; border-radius: 10px;">
+                    <i class="fas fa-arrow-up" style="color: var(--cor-principal);"></i>
+                    <div><small>Receitas (Mês)</small><span>R$ 14.500,00</span></div>
+                </div>
+                <div class="financas-item" style="background-color: var(--cor-sidebar); padding: 20px; border-radius: 10px;">
+                    <i class="fas fa-arrow-down" style="color: #FF6B6B;"></i>
+                    <div><small>Despesas (Mês)</small><span>R$ 3.200,00</span></div>
+                </div>
+                <div class="financas-item" style="background-color: var(--cor-sidebar); padding: 20px; border-radius: 10px;">
+                    <i class="fas fa-scale-balanced" style="color: #B0C4DE;"></i>
+                    <div><small>Saldo (Mês)</small><span>R$ 11.300,00</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Últimos Lançamentos</h4>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-acao-admin" id="btn-nova-receita" style="min-height: 0; padding: 10px 15px; background-color: var(--cor-principal); color: var(--cor-texto-botao);"><i class="fas fa-plus"></i><span>Receita</span></button>
+                        <button class="btn-acao-admin" id="btn-nova-despesa" style="min-height: 0; padding: 10px 15px; background-color: #FF6B6B; color: white;"><i class="fas fa-minus"></i><span>Despesa</span></button>
+                    </div>
+                </div>
+                
+                <table class="tabela-dados">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th style="width: 80px;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="finance-table-body">
+                        <tr id="no-transactions-row">
+                            <td colspan="5" style="text-align: center; color: var(--cor-texto-secundario); padding: 20px;">
+                                Nenhum lançamento cadastrado.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+        
+        <footer class="site-footer">
+            <div class="footer-logo">
+                <img src="logo-biodente-dark-icon.png" alt="Ícone Biodente">
+                <span>Biodente</span>
+            </div>
+            <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
+        </footer>
+
+    </main>
+
+    <div class="modal-overlay" id="new-transaction-modal">
+        <div class="modal-content card">
+            <div class="card-header">
+                <h4 id="modal-title">Novo Lançamento</h4>
+                <button class="close-modal" id="close-modal-btn">&times;</button>
+            </div>
+            
+            <form id="new-transaction-form">
+                <input type="hidden" id="tipo" value="">
+                
+                <div class="form-group-modal">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" required>
+                </div>
+                <div class="form-group-modal">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="number" step="0.01" id="valor" placeholder="100,00" required>
+                </div>
+                
+                <button type="submit" id="save-transaction-btn" class="btn-acao-admin" style="width: 100%; margin-top: 15px;">
+                    Salvar Lançamento
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../admin-financeiro.js"></script>
+
+</body>
+</html>
