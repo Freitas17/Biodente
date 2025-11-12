@@ -1,75 +1,222 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamentos - Biodente</title>
-    
-    <link rel="stylesheet" href="../paciente.css">
-    <link rel="stylesheet" href="../paciente-telas.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda - Biodente</title>
 
-    <header class="navbar">
-        <div class="nav-logo">
-            <img src="../static/Biodente_dark-icon.png" alt="Logo Biodente" class="logo-icon">
-            <h1>Biodente</h1>
-        </div>
-        <ul class="nav-menu">
-            <li><a href="paciente.html">Início</a></li>
-            <li><a href="agendamentos.html" class="active">Meus Agendamentos</a></li> <li><a href="exames.html">Meus Exames</a></li>
-            <li><a href="perfil.html">Meu Perfil</a></li>
-        </ul>
-        <div class="nav-user">
-            <a href="../index.html" class="btn-sair"><i class="fas fa-sign-out-alt"></i> Sair</a>
-        </div>
-    </header>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="msapplication-TileColor" content="#0a2239" />
+    <meta name="theme-color" content="#0a2239" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-    <main class="patient-container">
-        
-        <div class="header-com-botao">
-            <h2>Meus Agendamentos</h2>
-            <a href="./marcar-consultas.html" class="btn-novo-agendamento">
-            <i class="fas fa-calendar-plus"></i>
-             Marcar Nova Consulta
-            </a>
-        </div>
+    <style>
+      /* CSS do calendário (de marcar-consulta.css) deve estar no dashboard.css */
+      .admin-agenda-layout {
+        display: grid;
+        grid-template-columns: 1fr 350px; /* Calendário | Resumo */
+        gap: 25px;
+      }
+      /* Estilo para o <select> do admin */
+      .form-group-admin select {
+        width: 100%;
+        background-color: var(--cor-fundo);
+        border: 1px solid #334a60;
+        border-radius: 8px;
+        padding: 12px 15px;
+        color: var(--cor-texto-principal);
+        font-family: var(--font-principal);
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="logo-biodente-dark-icon.png"
+          alt="Logo Biodente"
+          class="logo-icon"
+        />
+        <h1>Biodente</h1>
+      </div>
+      <ul class="menu-principal">
+        <li class="menu-item">
+          <a href="usuario.html"
+            ><i class="fas fa-home"></i><span>Início</span></a
+          >
+        </li>
+        <li class="menu-item active">
+          <a href="admin-agenda.html"
+            ><i class="fas fa-calendar-alt"></i><span>Agenda (Marcar)</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-pacientes.html"
+            ><i class="fas fa-user-group"></i><span>Pacientes</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-financeiro.html"
+            ><i class="fas fa-wallet"></i><span>Financeiro</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-estoque.html"
+            ><i class="fas fa-box-archive"></i><span>Estoque</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="admin-relatorios.html"
+            ><i class="fas fa-chart-pie"></i><span>Relatórios</span></a
+          >
+        </li>
+      </ul>
+      <ul class="menu-inferior">
+        <li class="menu-item">
+          <a href="admin-config.html"
+            ><i class="fas fa-cog"></i><span>Configurações</span></a
+          >
+        </li>
+        <li class="menu-item">
+          <a href="index.html"
+            ><i class="fas fa-sign-out-alt"></i><span>Sair</span></a
+          >
+        </li>
+      </ul>
+    </nav>
 
-        <div class="tab-navigation">
-            <button class="tab-button active" data-tab="proximos">Próximos</button>
-            <button class="tab-button" data-tab="historico">Histórico</button>
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-titulo">
+          <h2>Agenda e Consultas</h2>
+          <p>Visualize e gerencie os agendamentos.</p>
         </div>
-
-        <div id="proximos" class="tab-content active">
-            <p id="no-proximos" style="display:none; color: var(--cor-texto-secundario); padding: 20px 0;">
-                Você não tem nenhuma consulta futura agendada.
-            </p>
+        <div class="header-user">
+          <i class="fas fa-bell"></i>
+          <div class="user-info">
+            <span>Admin / Secretária</span>
+            <small>Clínica Principal</small>
+          </div>
+          <img
+            src="https://i.pravatar.cc/150?img=12"
+            alt="Avatar"
+            class="user-avatar"
+          />
         </div>
+      </header>
 
-        <div id="historico" class="tab-content">
+      <section class="dashboard-inicio">
+        <div class="admin-agenda-layout">
+          <div class="card">
+            <div class="card-header">
+              <h4>Calendário de Agendamentos</h4>
+            </div>
+
+            <div class="form-group-admin">
+              <label>Paciente (Para quem é a consulta?)</label>
+              <select id="select-paciente">
+                <option value="">-- Selecione um paciente --</option>
+              </select>
+            </div>
+            <div class="form-group-admin">
+              <label>Profissional</label>
+              <select id="select-profissional">
+                <option value="Qualquer Profissional">
+                  Qualquer Profissional
+                </option>
+                <option value="Dr. Carlos">Dr. Carlos</option>
+                <option value="Dra. Ana">Dra. Ana</option>
+              </select>
+            </div>
+
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button class="calendar-nav" id="prev-month">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <h4 id="month-year">Novembro 2025</h4>
+                <button class="calendar-nav" id="next-month">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="calendar-days">
+                <div class="day-name">Dom</div>
+                <div class="day-name">Seg</div>
+                <div class="day-name">Ter</div>
+                <div class="day-name">Qua</div>
+                <div class="day-name">Qui</div>
+                <div class="day-name">Sex</div>
+                <div class="day-name">Sáb</div>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+
+            <div class="time-slots" id="time-slots" style="display: none">
+              <h4>
+                Horários disponíveis para <span id="selected-date-info"></span>
+              </h4>
+              <div class="slots-grid" id="slots-grid"></div>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            style="height: fit-content; position: sticky; top: 25px"
+          >
+            <div class="card-header">
+              <h4>Confirmar Agendamento</h4>
+            </div>
+
+            <div class="booking-summary">
+              <div class="summary-item">
+                <label>Paciente</label>
+                <span id="summary-paciente">--</span>
+              </div>
+              <div class="summary-item">
+                <label>Profissional</label>
+                <span id="summary-profissional">--</span>
+              </div>
+              <div class="summary-item">
+                <label>Data</label>
+                <span id="summary-data">--</span>
+              </div>
+              <div class="summary-item">
+                <label>Hora</label>
+                <span id="summary-hora">--</span>
+              </div>
+            </div>
+
+            <button
+              classs="btn-acao-admin"
+              id="btn-confirmar-admin"
+              style="width: 100%; margin-top: 20px"
+              disabled
             >
-                Você não tem nenhum histórico de consultas.
-            </p>
+              Confirmar Agendamento
+            </button>
+          </div>
         </div>
-        
+      </section>
+
+      <footer class="site-footer"></footer>
     </main>
 
-    <footer class="site-footer">
-    <div class="footer-logo">
-        <img src="../static/Biodente_dark-icon.png" alt="Ícone Biodente">
-        <span>Biodente</span>
-    </div>
-    <p>&copy; 2025 Biodente. Todos os direitos reservados.</p>
-    <div class="footer-links">
-        <a href="perfil.html">Meu Perfil</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Política de Privacidade</a>
-    </div>
-</footer>
-
-    <script src="../agendamentos.js"></script>
+    <script src="../marcar-consulta.js"></script>
 
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
@@ -81,5 +228,7 @@
     <script>
       new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
-</body>
+
+    <script src="admin-agenda.js"></script>
+  </body>
 </html>
